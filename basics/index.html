@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VueJS</title>
     <script src="vue.js"></script>
+    <title>VueJS</title>
+    <style>
+        .verde {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -14,18 +19,29 @@
         {{ dividir() }} <br>
         {{ numeroAleatorio() }}
     </div>
+
+    <div id="v-bind-app">
+        <a v-bind:href="site" target="_blank">Site</a>
+        <p v-bind:class="cor">Entendendo a diretiva V-Bind</p>
+        <input type="text" 
+            v-bind:placeholder="instrucaoPreenchimento" 
+            v-bind:value="valor"
+        >
+        <input type="checkbox" v-bind:checked="checado">
+    </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                
+                n1: 10,
+                n2: 20,
             },
             methods: {
                 somar: function somar(){
-                    return 4 + 2;
+                    return this.n1 + this.n2;
                 },
                 substrair: function (){
-                    return 4 - 2;
+                    return this.n1 - this.n2;
                 },
                 multiplicar: () => {
                     return 4 * 4;
@@ -37,6 +53,18 @@
                     return Math.random();
                 }
             }
+        });
+
+        const vmBind = new Vue({
+            el: '#v-bind-app',
+            data: {
+                site:'https://vuejs.org',
+                cor: 'verde',
+                instrucaoPreenchimento: 'Digite um valor: ',
+                valor: 'VueJS',
+                checado: true
+            },
+            methods: {}
         });
     </script>
 </body>
