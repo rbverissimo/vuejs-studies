@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ somar() }} <br>
+        {{ substrair() }} <br>
+        {{ multiplicar() }} <br>
+        {{ dividir() }} <br>
+        {{ numeroAleatorio() }}
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                
+            },
+            methods: {
+                somar: function somar(){
+                    return 4 + 2;
+                },
+                substrair: function (){
+                    return 4 - 2;
+                },
+                multiplicar: () => {
+                    return 4 * 4;
+                },
+                dividir(){
+                    return 16 / 2;
+                },
+                numeroAleatorio(){
+                    return Math.random();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
