@@ -36,6 +36,9 @@
 
     <div id="expressions">
         <input type="text" :value="mensagem.length">
+        <button @click="alertMe('Hello darkness my old friend')">Botão</button>
+        <br>
+        <input type="text" @input="getValue($event)">
     </div>
     <script>
         const vm = new Vue({
@@ -81,6 +84,13 @@
                 mensagem: 'Expressão'
             },
             methods: {
+                alertMe(t){
+                    alert(t);
+                },
+                getValue(e){
+                    console.log(e.target.value);
+                    
+                }
             }
         });
     </script>
