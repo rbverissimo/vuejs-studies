@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
 .container-domain {
     display: flex;
     width: 100vw;
@@ -6,9 +12,19 @@
 .container {
     display: flex;
     width: 70%;
+    justify-content: center;
 }
 
 .dash-panel {
     background: linear-gradient(90deg, hsla(180, 3%, 92%, 1) 0%, hsla(211, 42%, 82%, 1) 100%);
     height: auto;
+}
+
+.form-container {
+    display: flex;
+    padding: 3%;
+}
+
+.form-container * {
+    margin: 1.5%;
 }

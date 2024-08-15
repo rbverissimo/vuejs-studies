@@ -8,43 +8,45 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container-domain">
-        <div class="container dash-panel">
+    <div class="container-domain  dash-panel">
+        <div class="container">
            <div id="app">
-                <form method="get" action="" @submit.prevent="validarFormulario($event)">
-                    <label for="nome-professor"> Digite seu nome:</label>
-                    <input type="text" id="nome-professor" name="nome" :value="nomeProfessor">
-                    <fieldset>
-                        <legend>Instrumentos ensinados: </legend>
-                            <div>
-                                <input type="checkbox" name="guitarra" id="guitarra">
-                                <label for="guitarra">Guitarra</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="violao" id="violao">
-                                <label for="violao">Violão</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="piano" id="piano">
-                                <label for="piano">Piano</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="bateria" id="bateria">
-                                <label for="bateria">Bateria</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="baixo" id="baixo">
-                                <label for="baixo">Baixo</label>
-                            </div>
-                    </fieldset>
-                    <label for="valor-aula">Qual o valor médio da aula ?</label>
-                    <input type="text" name="valor" :value="valor" id="valor-aula" @input="mascaraValorDinheiro($event)">
-                    <div>
-                        <label for="data-aula">Escolher a data e o horário da aula: </label>
-                        <input type="datetime-local" name="data-aula" id="data-aula">
-                    </div>
-                    <button type="submit">Salvar</button>
-                </form>
+                <div class="form-container">
+                    <form method="get" action="" @submit.prevent="validarFormulario($event)">
+                        <label for="nome-professor"> Digite seu nome:</label>
+                        <input type="text" id="nome-professor" name="nome" :value="nomeProfessor">
+                        <fieldset>
+                            <legend>Instrumentos ensinados: </legend>
+                                <div>
+                                    <input type="checkbox" name="guitarra" id="guitarra">
+                                    <label for="guitarra">Guitarra</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="violao" id="violao">
+                                    <label for="violao">Violão</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="piano" id="piano">
+                                    <label for="piano">Piano</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="bateria" id="bateria">
+                                    <label for="bateria">Bateria</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="baixo" id="baixo">
+                                    <label for="baixo">Baixo</label>
+                                </div>
+                        </fieldset>
+                        <label for="valor-aula">Qual o valor médio da aula ?</label>
+                        <input type="text" name="valor" :value="valor" id="valor-aula" @input="mascaraValorDinheiro($event)">
+                        <div>
+                            <label for="data-aula">Escolher a data e o horário da aula: </label>
+                            <input type="datetime-local" name="data-aula" id="data-aula">
+                        </div>
+                        <button type="submit">Salvar</button>
+                    </form>
+                </div>
            </div>
         </div>
     </div>
