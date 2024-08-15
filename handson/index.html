@@ -11,9 +11,9 @@
     <div class="container-domain">
         <div class="container dash-panel">
            <div id="app">
-                <form method="get" action="">
+                <form method="get" action="" @submit.prevent="validarFormulario($event)">
                     <label for="nome-professor"> Digite seu nome:</label>
-                    <input type="text" id="nome-professor" name="nome">
+                    <input type="text" id="nome-professor" name="nome" :value="nomeProfessor">
                     <fieldset>
                         <legend>Instrumentos ensinados: </legend>
                             <div>
@@ -38,10 +38,10 @@
                             </div>
                     </fieldset>
                     <label for="valor-aula">Qual o valor médio da aula ?</label>
-                    <input type="text" name="valor" id="valor-aula">
+                    <input type="text" name="valor" :value="valor" id="valor-aula" @input="mascaraValorDinheiro($event)">
                     <div>
                         <label for="data-aula">Escolher a data e o horário da aula: </label>
-                        <input type="datetime" name="data-aula" id="data-aula">
+                        <input type="datetime-local" name="data-aula" id="data-aula">
                     </div>
                     <button type="submit">Salvar</button>
                 </form>
@@ -50,8 +50,47 @@
     </div>
     <script>
         const vm = new Vue({
-            el: '#app'
+            el: '#app',
+            data: {
+                valor:  0,
+                nomeProfessor: '',
+
+            },
+            methods: {
+                mascaraValorDinheiro(event){
+                    const input = event.target.value.trim();
+                    let resultado = '';
+                    const semCaracterizacaoMoeda = input.replace(/^R\$/, "");
+                    resultado = +semCaracterizacaoMoeda.replace(',', ''); 
+
+                    if(resultado < 100){
+                        let numerosPequenos = resultado;
+                        if(resultado < 10){
+                                numerosPequenos = `0${numerosPequenos}`;
+                        }
+                        resultado = `0,${numerosPequenos}`;
+                    } else {
+                        resultado = resultado.toString();
+                        const ultimosDoisDigitos = resultado.slice(-2);
+                        const parteNaoDecimal = resultado.slice(0, -2);
+
+
+                        resultado = `${parteNaoDecimal},${ultimosDoisDigitos}`;
+                    }
+                    event.target.value = `R$${resultado}`;  
+                },
+                validarFormulario(event){
+                    console.log(event);
+    
+                    if(this.nomeProfessor === ''){
+                        alert('Preencha o nome do professor');
+                        event.preventDefault();
+                    }
+                    
+                } 
+            }
         });
+            
     </script>
 </body>
 </html>
