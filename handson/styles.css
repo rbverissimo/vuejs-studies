@@ -10,4 +10,5 @@
 
 .dash-panel {
     background: linear-gradient(90deg, hsla(180, 3%, 92%, 1) 0%, hsla(211, 42%, 82%, 1) 100%);
+    height: auto;
 }
